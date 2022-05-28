@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@azure/storage-queue": "^12.9.0",
+    "dotenv": "^16.0.1",
+    "firmata": "^2.3.0",
+    "johnny-five": "^2.1.0",
+    "serialport": "^10.4.0",
+    "uuid": "^8.3.2"
+  }
+}
