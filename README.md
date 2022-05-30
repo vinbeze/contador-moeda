@@ -44,8 +44,8 @@ renomeie o arquivo `.env.example` para  `.env` e altere os token com suas respec
 	
 
 
-### Dependencias
-Para baixar as depencias e executar o projeto com o NPM, executar o comando abaixo:
+### Dependências
+Para baixar as dependências e executar, executar o comando abaixo:
 
     npm install 
 
