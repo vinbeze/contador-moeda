@@ -3,18 +3,52 @@ var five = require("johnny-five");
 const dotenv = require('dotenv');
 const valores = require("./moedas");
 const { v4: uuidv4 } = require('uuid');
-const { QueueClient, QueueServiceClient } = require("@azure/storage-queue");
+const { ServiceBusClient } = require("@azure/service-bus");
 
 dotenv.config();
+
+
+
 var board = new five.Board({port: "COM3"});
 var numero = 0.0;
 
-const clientQueue = {
-    getClient() {
-        const queueServiceClient = QueueServiceClient.fromConnectionString(process.env.AZURE_STRING_CONEXAO);
-        const queueClient = queueServiceClient.getQueueClient(process.env.AZURE_NOME_FILA);
-        return queueClient;
+async function sendMessage(payload)
+{
+
+    const sbClient = new ServiceBusClient(process.env.AZURE_STRING_CONEXAO);
+    const sender  = sbClient.createSender(process.env.AZURE_NOME_FILA);
+
+    const messages = [
+        { body: payload }
+     ];
+
+    try {
+        let batch = await sender.createMessageBatch(); 
+        for (let i = 0; i < messages.length; i++) {
+			// for each message in the array			
+
+			// try to add the message to the batch
+			if (!batch.tryAddMessage(messages[i])) {			
+				// if it fails to add the message to the current batch
+				// send the current batch as it is full
+				await sender.sendMessages(batch);
+
+				// then, create a new batch 
+				batch = await sender.createMessageBatch();
+
+				// now, add the message failed to be added to the previous batch to this batch
+				if (!batch.tryAddMessage(messages[i])) {
+					// if it still can't be added to the batch, the message is probably too big to fit in a batch
+					throw new Error("Message too big to fit in a batch");
+				}
+			}
+            await sender.sendMessages(batch);
+            await sender.close();
+		}
+    } finally{
+        await sbClient.close();
     }
+    
 }
 
 board.on("ready", () => {
@@ -85,8 +119,7 @@ board.on("ready", () => {
             valor: Number(numero).toFixed(2)
         }
 
-        const client = clientQueue.getClient();
-        client.sendMessage(JSON.stringify(payload));
+        sendMessage(payload);
 
         console.log(`Seu voucher é de: ${Number(numero).toFixed(2)}`);
 

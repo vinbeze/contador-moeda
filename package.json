@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@azure/storage-queue": "^12.9.0",
+    "@azure/service-bus": "^7.5.1",
     "dotenv": "^16.0.1",
     "firmata": "^2.3.0",
     "johnny-five": "^2.1.0",
