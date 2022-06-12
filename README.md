@@ -28,7 +28,7 @@ O projeto consiste em ter um contador de moedas em cada estabelecimento, onde ca
 
 ![contador de moeda](https://github.com/vinbeze/contador-moeda/blob/main/contador_moeda_circuito.png)
 
-Criamos um contador utilizando push buttons, podemos observar a existencia de 6 deles, cada qual representa uma moeda brasileira sendo elas R\$ 0,05, R\$ 0,10, R\$ 0,25, R\$ 0,50, R\$ 1,00 e o ultimo representa a finalização da contagem e da geração do voucher.
+Criamos um contador utilizando push buttons, podemos observar a existencia de 6 deles, cada qual representa uma moeda brasileira sendo elas `R$ 0,05`, `R$ 0,10`, `R$ 0,25`, `R$ 0,50`, `R$ 1,00` e o ultimo representa a finalização da contagem e da geração do voucher.
 
 Utilizamos o protocolo firmata no arduino para criar um canal de comunicação via serial port com o backend que é o responsavel pelas leituras dos acionamentos dos butões.
 
@@ -36,18 +36,10 @@ Utilizamos o protocolo firmata no arduino para criar um canal de comunicação v
 
 Construimos o backend em Node JS e utilizamos a biblioteca johnny-five para leitura dos push buttons, realização da logica de contagem de moedas e comunicação com sistemas externos.
 
+Logo após a finalização da contagem das moedas, nosso backend envia o valor total mais as informações do estabelecimento para uma fila no Azure, a mesma é processada por uma action function e salva os dados em um MongoDb.
 
-
-
-
-
-
-
-
-
-
-
-
+Para a consulta do total de moedas arrecadadas pelo estabelecimento por dia, disponibilizamos um endpoint que tambem utiliza-se de azure functions. esse endpoint consulta nosso banco de dados e retorna o total da contagem de moedas para o estabelecimento.
+As functions encontram-se nesse repositorio: [contador-functions](https://github.com/vinbeze/contador-functions)
 
 
 # Como utilizar o backend
@@ -76,11 +68,11 @@ renomeie o arquivo `.env.example` para  `.env` e altere os token com suas respec
 
 	AZURE_STRING_CONEXAO="DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={accountKey};EndpointSuffix=core.windows.net"
 
-	ID_ESTABELECIMENTO=2543
+	ID_ESTABELECIMENTO=<ID_ESTABELECIMENTO:number>
 
-	NOME_ESTABELECIMENTO="<NOME_DO_ESTABELECIMENTO>"
+	NOME_ESTABELECIMENTO="<NOME_DO_ESTABELECIMENTO:string>"
 
-	AZURE_NOME_FILA="<NOME_DA_FILA>"
+	AZURE_NOME_FILA="<NOME_DA_FILA:string>"
 	
 
 
