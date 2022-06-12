@@ -12,9 +12,9 @@
 342194 - GABRIELA PINHEIRO DA SILVA
 
 # Projeto
-Construimos esse prototipo de contador de moedas no intuito de sanar a dificuldade que estabelecimentos comerciais vem enfrentando com falta de moedas o troco no ato do pagamento.
+Construimos esse prototipo de contador de moedas no intuito de sanar a dificuldade que estabelecimentos comerciais vem enfrentando com falta de moedas para o troco no ato do pagamento.
 
-O projeto consiste em ter um contador de moedas em cada estabelecimento, onde cada cliente possa realizar de maneira autônoma a troca de moedas por vourches e descontos na loja.
+O projeto consiste em ter um contador de moedas em cada estabelecimento, onde cada cliente possa realizar de maneira autônoma a troca de moedas por voucher e descontos no local.
 
 
 # Solução
