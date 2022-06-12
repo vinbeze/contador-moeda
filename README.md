@@ -34,7 +34,7 @@ Utilizamos o protocolo firmata no arduino para criar um canal de comunicação v
 
 ## Backend
 
-Construimos o backend em Node JS e utilizamos a biblioteca johnny-five para leitura dos push buttons, realização da logica de contagem de moedas e comunicação com sistemas externos.
+Construimos o backend em Node JS e utilizamos a biblioteca johnny-five para leitura dos push buttons, realização da logica de contagem de moedas e comunicação com serviços externos.
 
 Logo após a finalização da contagem das moedas, nosso backend envia o valor total mais as informações do estabelecimento para uma fila no Azure, a mesma é processada por uma action function e salva os dados em um MongoDb.
 
