@@ -2,17 +2,17 @@
 
 
 <h1 align="center"> Contador de Moedas </a>  </h1>
- <p align="center"> Prototipo de um contador de moedas criado para o modulo "IOT Development" - FIAP - Grupo 1 <br> O Projeto tem como objetivo a criação de um contador de moedas que gere um voucher para utilização em estabelecimentos comerciais</p>
+ <p align="center"> Protótipo de um contador de moedas criado para o modulo "IOT Development" - FIAP - Grupo 1 <br> O Projeto tem como objetivo a criação de um contador de moedas que gera um voucher para utilização em estabelecimentos comerciais.</p>
 
 ###  Integrantes do Grupo<Br>
-341417 - LUCAS GOIANA MALICIA
+341417 - LUCAS GOIANA MALICIA - Fog Computing
 
-340887 - VINICIUS BEZERRA LIMA
+340887 - VINICIUS BEZERRA LIMA - Edge Computing
 
-342194 - GABRIELA PINHEIRO DA SILVA
+342194 - GABRIELA PINHEIRO DA SILVA - Cloud Compunting
 
 # Projeto
-Construimos esse prototipo de contador de moedas no intuito de sanar a dificuldade que estabelecimentos comerciais vem enfrentando com falta de moedas para o troco no ato do pagamento.
+Construimos esse protótipo de contador de moedas no intuito de sanar a dificuldade que estabelecimentos comerciais vem enfrentando com falta de moedas para o troco no ato do pagamento.
 
 O projeto consiste em ter um contador de moedas em cada estabelecimento, onde cada cliente possa realizar de maneira autônoma a troca de moedas por voucher e descontos no local.
 
@@ -28,13 +28,13 @@ O projeto consiste em ter um contador de moedas em cada estabelecimento, onde ca
 
 ![contador de moeda](https://github.com/vinbeze/contador-moeda/blob/main/contador_moeda_circuito.png)
 
-Criamos um contador utilizando push buttons, podemos observar a existencia de 6 deles, cada qual representa uma moeda brasileira sendo elas `R$ 0,05`, `R$ 0,10`, `R$ 0,25`, `R$ 0,50`, `R$ 1,00` e o ultimo representa a finalização da contagem e da geração do voucher.
+Criamos um contador utilizando push buttons, podemos observar a existência de 6 deles, cada qual representa uma moeda brasileira sendo elas `R$ 0,05`, `R$ 0,10`, `R$ 0,25`, `R$ 0,50`, `R$ 1,00` e o último representa a finalização da contagem e da geração do voucher.
 
-Utilizamos o protocolo firmata no arduino para criar um canal de comunicação via serial port com o backend que é o responsavel pelas leituras dos acionamentos dos butões.
+Utilizamos o protocolo firmata no arduino para criar um canal de comunicação via serial port com o backend que é o responsavel pelas leituras dos acionamentos dos botões.
 
 ## Backend
 
-Construimos o backend em Node JS e utilizamos a biblioteca johnny-five para leitura dos push buttons, realização da logica de contagem de moedas e comunicação com serviços externos.
+Construímos o backend em Node JS e utilizamos a biblioteca johnny-five para leitura dos push buttons, realização da lógica de contagem de moedas e comunicação com serviços externos.
 
 Logo após a finalização da contagem das moedas, nosso backend envia o valor total mais as informações do estabelecimento para uma fila no Azure, a mesma é processada por uma action function e salva os dados em um MongoDb.
 
