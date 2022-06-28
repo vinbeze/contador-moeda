@@ -2,7 +2,7 @@
 
 
 <h1 align="center"> Contador de Moedas </a>  </h1>
- <p align="center"> Protótipo de um contador de moedas criado para o modulo "IOT Development" - FIAP - Grupo 1 <br> O Projeto tem como objetivo a criação de um contador de moedas que gera um voucher para utilização em estabelecimentos comerciais.</p>
+ <p align="center"> Protótipo de um contador de moedas criado para o modulo "IOT Development" e "Cloud Development" - FIAP - Grupo 1 <br> O Projeto tem como objetivo a criação de um contador de moedas que gera um voucher para utilização em estabelecimentos comerciais.</p>
 
 ###  Integrantes do Grupo<Br>
 341417 - LUCAS GOIANA MALICIA - Fog Computing
