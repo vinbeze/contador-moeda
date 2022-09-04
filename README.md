@@ -5,11 +5,11 @@
  <p align="center"> Protótipo de um contador de moedas criado para o modulo "IOT Development" e "Cloud Development" - FIAP - Grupo 1 <br> O Projeto tem como objetivo a criação de um contador de moedas que gera um voucher para utilização em estabelecimentos comerciais.</p>
 
 ###  Integrantes do Grupo<Br>
-341417 - LUCAS GOIANA MALICIA - Fog Computing
+LUCAS GOIANA MALICIA - Fog Computing
 
-340887 - VINICIUS BEZERRA LIMA - Edge Computing
+ VINICIUS BEZERRA LIMA - Edge Computing
 
-342194 - GABRIELA PINHEIRO DA SILVA - Cloud Compunting
+GABRIELA PINHEIRO DA SILVA - Cloud Compunting
 
 # Projeto
 Construimos esse protótipo de contador de moedas no intuito de sanar a dificuldade que estabelecimentos comerciais vem enfrentando com falta de moedas para o troco no ato do pagamento.
